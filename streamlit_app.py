@@ -97,7 +97,7 @@ st.markdown(
         @media (min-width: 768px) {
             .container {
                 flex-direction: row;
-                justify-content: space-between;
+                justify-content: flex-start; /* Align left on large screens */
                 align-items: center;
             }
             .header-image {
@@ -170,44 +170,33 @@ with st.sidebar:
 
     # Social link buttons with specific colors and emoticons
     st.markdown(
-        f'<a href="https://linkedin.com/in/yourusername" target="_blank"><button class="stButton linkedin-button">🔗 LinkedIn</button></a>',
-        unsafe_allow_html=True)
-    st.markdown(
-        f'<a href="https://github.com/yourusername" target="_blank"><button class="stButton github-button">🐱 GitHub</button></a>',
-        unsafe_allow_html=True)
-    st.markdown(
-        f'<a href="https://scholar.google.com/citations?user=yourID" target="_blank"><button class="stButton google-scholar-button">📚 Google Scholar</button></a>',
-        unsafe_allow_html=True)
-    st.markdown(
-        f'<a href="https://www.hackthebox.com/user/yourprofile" target="_blank"><button class="stButton hackthebox-button">🕵️‍♂️ HackTheBox</button></a>',
-        unsafe_allow_html=True)
-    st.markdown(
-        f'<a href="https://www.crucible.io/profile/yourusername" target="_blank"><button class="stButton crucible-button">⚔️ Crucible</button></a>',
-        unsafe_allow_html=True)
-    st.markdown(
-        f'<a href="mailto:valentino.merlino@example.com" target="_blank"><button class="stButton email-button">📧 Email</button></a>',
-        unsafe_allow_html=True)
+        """
+        <a href="https://linkedin.com/in/yourusername" target="_blank"><button class="stButton linkedin-button">🔗 LinkedIn</button></a>
+        <a href="https://github.com/yourusername" target="_blank"><button class="stButton github-button">🐱 GitHub</button></a>
+        <a href="https://scholar.google.com/citations?user=yourID" target="_blank"><button class="stButton google-scholar-button">📚 Google Scholar</button></a>
+        <a href="https://www.hackthebox.com/user/yourprofile" target="_blank"><button class="stButton hackthebox-button">🕵️‍♂️ HackTheBox</button></a>
+        <a href="https://www.crucible.io/profile/yourusername" target="_blank"><button class="stButton crucible-button">⚔️ Crucible</button></a>
+        <a href="mailto:valentino.merlino@example.com" target="_blank"><button class="stButton email-button">📧 Email</button></a>
+        """, unsafe_allow_html=True
+    )
 
-# --- HEADER SECTION ---
-#st.markdown('<div class="container">', unsafe_allow_html=True)
-st.markdown('<p class="title">AI Red Teamer | AI Security Researcher</p>', unsafe_allow_html=True)
+# --- HEADER SECTION --- 
+# Centered layout with image and text on the same line
+col1, col2 = st.columns([1, 3])
 
-# Image section
-# Centered image section using Streamlit's columns layout
-col1, col2, col3 = st.columns([1, 2, 1])
-
-with col2:
+with col1:
     st.image("https://media.licdn.com/dms/image/v2/C4D03AQHBGiAnsLA9Wg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1601298916699?e=1744243200&v=beta&t=NenGp1ROj_yZmLWZq6Z-6OloUOUm60RAx-9RSTbg4iQ", 
              caption="Valentino Merlino", 
              use_container_width=False,
              width=250)
 
-# Text section
-st.markdown(""" 
-- 🎓 **PhD candidate in AI Security**  
-- 🏆 **Expert in AI Red Teaming & Adversarial Testing**  
-- 📖 **Published Researcher in IoT Security and Adversarial Machine Learning**
-""", unsafe_allow_html=True)
+with col2:
+    st.markdown('<p class="title">AI Red Teamer | AI Security Researcher</p>', unsafe_allow_html=True)
+    st.markdown(""" 
+    - 🎓 **PhD candidate in AI Security**  
+    - 🏆 **Expert in AI Red Teaming & Adversarial Testing**  
+    - 📖 **Published Researcher in IoT Security and Adversarial Machine Learning**
+    """, unsafe_allow_html=True)
 
 # --- ABOUT SECTION ---
 st.markdown('<p class="subtitle emoji">👨‍💻 About Me</p>', unsafe_allow_html=True)
@@ -250,6 +239,4 @@ st.write("""
 """)
 
 # --- FOOTER ---
-#st.write("---")
-st.markdown('<p class="footer">© 2025 Valentino Merlino | AI Red Teamer </p>', unsafe_allow_html=True)
-#st.markdown('</div>', unsafe_allow_html=True)
+st.markdown('<p class="footer">Streamlit © 2025 Valentino Merlino | AI Red Teamer </p>', unsafe_allow_html=True)
